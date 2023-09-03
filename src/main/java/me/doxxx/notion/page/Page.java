@@ -1,44 +1,36 @@
 package me.doxxx.notion.page;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Page {
-    private final long pageId;
+    @Getter
+    private long id;
+    @Getter
     private final String title;
+    @Getter
     private final String content;
+    @Getter
     private final List<Page> subPages;
     private Page parentPage;
 
-    public Page(long pageId, String title, String content) {
-        this.pageId = pageId;
+    public Page(String title, String content) {
         this.title = title;
         this.content = content;
         this.subPages = new ArrayList<>();
     }
 
-    public long getPageId() {
-        return pageId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public List<Page> getSubPages() {
-        return subPages;
+    public void assignId(final Long id) {
+        this.id = id;
     }
 
     public String getBreadcrumbs() {
         if (parentPage == null) {
             return title;
-        } else {
-            return parentPage.getBreadcrumbs() + " > " + title;
         }
+        return parentPage.getBreadcrumbs() + " > " + title;
     }
 
     public void setParentPage(Page parentPage) {
@@ -51,6 +43,7 @@ public class Page {
 
     public void addSubPage(Page page) {
         subPages.add(page);
+        page.setParentPage(this);
     }
 
     public void removeSubPage(Page page) {
