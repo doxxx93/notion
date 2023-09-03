@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PageController {
 
-    private PageService pageService;
+    private final PageService pageService;
 
     public PageController(PageService pageService) {
         this.pageService = pageService;
     }
 
-    @GetMapping("/{pageId}")
-    public PageResponse getPage(@PathVariable long pageId) {
-        return pageService.getPageById(pageId);
+    @GetMapping("/pages/{pageId}")
+    public ResponseEntity<PageResponse> getPage(@PathVariable long pageId) {
+        return ResponseEntity.ok(pageService.getPageById(pageId));
     }
 }
 
