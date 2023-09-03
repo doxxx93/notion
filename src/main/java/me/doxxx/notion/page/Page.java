@@ -5,6 +5,9 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The Page class represents a web page and its properties.
+ */
 public class Page {
     @Getter
     private long id;
@@ -22,15 +25,25 @@ public class Page {
         this.subPages = new ArrayList<>();
     }
 
+    /**
+     * Assigns the given ID to the object.
+     *
+     * @param id The ID to be assigned
+     */
     public void assignId(final Long id) {
         this.id = id;
     }
 
+    /**
+     * Retrieves the breadcrumbs of the object.
+     *
+     * @return The breadcrumbs of the object as a String
+     */
     public String getBreadcrumbs() {
         if (parentPage == null) {
-            return title;
+            return String.valueOf(id);
         }
-        return parentPage.getBreadcrumbs() + " > " + title;
+        return parentPage.getBreadcrumbs() + "/" + id;
     }
 
     public void setParentPage(Page parentPage) {
