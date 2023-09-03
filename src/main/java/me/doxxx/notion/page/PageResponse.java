@@ -6,13 +6,14 @@ import java.util.stream.Collectors;
 public record PageResponse(
         String title,
         String content,
-        List<PageResponse> subpages,
+        List<Long> subpages,
         String breadcrumbs
 ) {
     public PageResponse(Page page) {
         this(page.getTitle(), page.getContent(), page.getSubPages()
-                .stream()
-                .map(PageResponse::new)
-                .collect(Collectors.toList()), page.getBreadcrumbs());
+                        .stream()
+                        .map(Page::getId)
+                        .collect(Collectors.toList())
+                , page.getBreadcrumbs());
     }
 }

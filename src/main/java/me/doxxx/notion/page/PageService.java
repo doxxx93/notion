@@ -13,9 +13,6 @@ public class PageService {
         pageRepository = new PageRepository();
     }
 
-    /**
-     * Initializes sample data for the application.
-     */
     @PostConstruct
     private void initializeSampleData() {
         Page samplePage1 = new Page("Title 1", "Content 1");
