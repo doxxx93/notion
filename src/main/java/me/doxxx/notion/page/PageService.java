@@ -49,7 +49,6 @@ public class PageService {
         }
     }
 
-
     /**
      * This method retrieves a page with the specified ID from the page repository. It also
      * retrieves the breadcrumbs for the page using the getBreadcrumbs() method. The method
@@ -86,7 +85,6 @@ public class PageService {
 
         return new ArrayList<>(breadcrumbsLinkedList);
     }
-
 
     public void savePage(Page page) {
         pageRepository.save(page);

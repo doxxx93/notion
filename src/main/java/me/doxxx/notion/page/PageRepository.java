@@ -7,7 +7,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
 public class PageRepository {
-
     private final Map<Long, Page> persistence = new ConcurrentHashMap<>();
     private Long sequence = 0L;
 
