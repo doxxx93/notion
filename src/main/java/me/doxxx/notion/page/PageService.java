@@ -1,6 +1,7 @@
 package me.doxxx.notion.page;
 
 import jakarta.annotation.PostConstruct;
+import me.doxxx.notion.constants.CacheConstants;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
@@ -71,7 +72,7 @@ public class PageService {
      * @param pageId The ID of the page for which to retrieve the breadcrumbs.
      * @return A list of Long values representing the breadcrumbs for the specified page.
      */
-    @Cacheable(value = "breadcrumbs", key = "#pageId")
+    @Cacheable(value = CacheConstants.BREADCRUMBS_CACHE_NAME, key = "#pageId")
     public List<Long> getBreadcrumbs(Long pageId) {
         Page page = pageRepository.findById(pageId);
 
