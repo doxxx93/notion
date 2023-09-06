@@ -45,7 +45,7 @@ public class PageService {
             if (i > 1) {
                 int parentIndex = random.nextInt(i - 1);
                 pages.get(parentIndex).addSubPage((long) i);
-                samplePage.setParentPageId((long) parentIndex + 1);
+                samplePage.assignParentPageId((long) parentIndex + 1);
             }
 
             savePage(samplePage);

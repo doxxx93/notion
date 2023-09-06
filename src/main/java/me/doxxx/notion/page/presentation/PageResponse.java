@@ -14,7 +14,7 @@ public record PageResponse(
         return new PageResponse(
                 page.getTitle(),
                 page.getContent(),
-                page.getSubpages(),
+                page.getSubPageIds(),
                 breadcrumbs
         );
     }
