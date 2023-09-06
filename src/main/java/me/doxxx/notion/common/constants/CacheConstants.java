@@ -1,4 +1,4 @@
-package me.doxxx.notion.constants;
+package me.doxxx.notion.common.constants;
 
 public final class CacheConstants {
 

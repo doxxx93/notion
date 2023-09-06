@@ -1,7 +1,10 @@
-package me.doxxx.notion.page;
+package me.doxxx.notion.page.application;
 
 import jakarta.annotation.PostConstruct;
-import me.doxxx.notion.constants.CacheConstants;
+import me.doxxx.notion.common.constants.CacheConstants;
+import me.doxxx.notion.page.domain.Page;
+import me.doxxx.notion.page.domain.PageRepository;
+import me.doxxx.notion.page.presentation.PageResponse;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;

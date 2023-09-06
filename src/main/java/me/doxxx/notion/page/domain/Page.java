@@ -1,4 +1,4 @@
-package me.doxxx.notion.page;
+package me.doxxx.notion.page.domain;
 
 import lombok.Getter;
 

@@ -1,4 +1,6 @@
-package me.doxxx.notion.page;
+package me.doxxx.notion.page.presentation;
+
+import me.doxxx.notion.page.domain.Page;
 
 import java.util.List;
 

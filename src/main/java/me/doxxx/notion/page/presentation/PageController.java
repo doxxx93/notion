@@ -1,5 +1,6 @@
-package me.doxxx.notion.page;
+package me.doxxx.notion.page.presentation;
 
+import me.doxxx.notion.page.application.PageService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
