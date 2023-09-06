@@ -110,7 +110,9 @@ public class Page {
         return PageResponse.of(page, breadcrumbs);
     }
 
-    @Cacheable(value = "breadcrumbs", key = "#pageId")
+    // public final class CacheConstants 
+    // public static final String BREADCRUMBS_CACHE_NAME = "breadcrumbs";
+    @Cacheable(value = CacheConstants.BREADCRUMBS_CACHE_NAME, key = "#pageId")
     public List<Long> getBreadcrumbs(Long pageId) {
         Page page = pageRepository.findById(pageId);
 
@@ -152,6 +154,8 @@ self-invocation의 원인은 지금과 같이 한 클래스의 메서드에서 �
 결국 2의 방법으로 이를 해결할 수 있었다.
 
 `getPageById`메서드에서 확인할 수 있듯이 `getBreadcrumbs`메서드를 호출할 때, `PageService`의 프록시 인스턴스를 통해 호출하도록 구현 된 것을 알 수 있다.
+
+`List<Long> breadcrumbs = this.getInstance().getBreadcrumbs(pageId);`
 
 ### 향후 과제
 
